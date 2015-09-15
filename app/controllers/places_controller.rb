@@ -1,13 +1,13 @@
 class PlacesController < ApplicationController
-  before_action :find_pace, only: [:show, :edit, :update, :destroy ]
-  before_action :authenticate_user!, :only => [:new, :create]
+  before_action :find_place, only: [ :show, :edit, :update, :destroy ]
+  before_action :authenticate_user!, :except => [:index, :show]
 
   def index
     @places = Place.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 3 )
   end
 
   def new
-    @place = Place.new
+     @place = Place.new
   end
 
   def create
@@ -19,14 +19,25 @@ class PlacesController < ApplicationController
   end
 
   def edit
+    if @place.user != current_user
+      return render :text => 'Not Allowed', :status => :forbidden
+    end
   end
 
   def update
+    if @place.user != current_user
+      return render :text => 'Not Allowed', :status => :forbidden
+    end
+
     @place.update_attributes(place_params)
     redirect_to root_path, notice: "Edit save"
   end
 
   def destroy
+    if @place.user != current_user
+      return render :text => 'Not Allowed', :status => :forbidden
+    end
+
     @place.destroy
     redirect_to root_path, notice: "Successfully deleted place"
   end
@@ -37,7 +48,7 @@ class PlacesController < ApplicationController
     params.require(:place).permit(:name, :description, :address )
   end
 
-  def find_pace
+  def find_place
     @place = Place.find(params[:id])
   end
 end
