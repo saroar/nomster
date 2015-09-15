@@ -14,6 +14,7 @@ gem 'sass-rails'
 gem 'sprockets', '<= 2.11.0'
 gem 'will_paginate', '~> 3.0.7'
 gem 'simple_form', '~> 3.1.1'
+gem 'devise', '~> 3.5.2'
 
 group :doc do
   gem 'sdoc', require: false
