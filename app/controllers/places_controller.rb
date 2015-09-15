@@ -28,6 +28,12 @@ class PlacesController < ApplicationController
     redirect_to root_path, notice: "Edit save"
   end
 
+  def destroy
+    @place = Place.find(params[:id])
+    @place.destroy
+    redirect_to root_path, notice: "Successfully deleted place"
+  end
+
   private
 
   def place_params
