@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+  before_action :find_pace, only: [:show, :edit, :update, :destroy ]
   before_action :authenticate_user!, :only => [:new, :create]
 
   def index
@@ -15,21 +16,17 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place = Place.find(params[:id])
   end
 
   def edit
-    @place = Place.find(params[:id])
   end
 
   def update
-    @place = Place.find(params[:id])
     @place.update_attributes(place_params)
     redirect_to root_path, notice: "Edit save"
   end
 
   def destroy
-    @place = Place.find(params[:id])
     @place.destroy
     redirect_to root_path, notice: "Successfully deleted place"
   end
@@ -38,5 +35,9 @@ class PlacesController < ApplicationController
 
   def place_params
     params.require(:place).permit(:name, :description, :address )
+  end
+
+  def find_pace
+    @place = Place.find(params[:id])
   end
 end
