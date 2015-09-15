@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 4.0.0'
 gem 'will_paginate', '~> 3.0.7'
+gem 'simple_form', '~> 3.1.1'
 
 group :doc do
   gem 'sdoc', require: false

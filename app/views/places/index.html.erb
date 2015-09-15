@@ -6,5 +6,5 @@
   </div>
 <% end %>
 <div class="container">
-  <%= will_paginate @posts, previous_label: "Golder", next_label: "Next" %>
+  <%= will_paginate @posts, previous_label: "Golder", next_label: "Next", inner_window: 1, outer_window: 0 %>
 </div>
