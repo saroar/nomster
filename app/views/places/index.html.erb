@@ -20,7 +20,7 @@
         </blockquote>
       </div>
       <br />
-      <h1>Hello there </h1>
+
         <div class="col-xs-6 col-sm-6 ">
           <blockquote>
             <% if place.photos.present? && place.photos.last.picture.present?  %>
@@ -35,7 +35,7 @@
 <% end %>
 
 
-
+<div class="clear"></div>
 <div class="container">
   <%= will_paginate @posts, previous_label: "Golder", next_label: "Next", inner_window: 1, outer_window: 0 %>
 </div>
