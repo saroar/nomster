@@ -1,15 +1,15 @@
 <% @places.each do |place| %>
   <div class="booyah-box col-xs-4 col-xs-offset-1">
-  <div class="row">
-    <div class="col-xs-6 col-sm-6 ">
-      <h1><%= link_to place.name, place_path(place) %></h1><br />
-      <i><%= place.address %></i><br /><br />
-      <p><%= place.description %></p><br />
-    <% if place.user.present? %>
-      <small><%= place.user.email %></small>
-    <% end %>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 ">
+        <h1><%= link_to place.name, place_path(place) %></h1><br />
+        <i><%= place.address %></i><br /><br />
+        <p><%= place.description %></p><br />
+        <% if place.user.present? %>
+          <small><%= place.user.email %></small>
+        <% end %>
 
-    <% if place.comments.present? %>
+        <% if place.comments.present? %>
 
         <blockquote>
           <% if place.comments.present? && place.comments.last.humanized_rating.present? %>
@@ -19,21 +19,20 @@
           <small><%= place.comments.last.user.email %></small>
         </blockquote>
       </div>
-    <% end%>
+  <% end %>
 
-    <% if place.photos.present? %>
-      <div class="col-xs-6 col-sm-6 ">
-        <blockquote>
-          <% if place.photos.present? && place.photos.last.picture.present?  %>
-            <%= image_tag place.photos.last.picture, :class => 'img-responsive' %>
-            <%= place.photos.last.caption %>
-          <% end %>
-        </blockquote>
-      </div>
-    <% end%>
-
+      <% if place.photos.present? %>
+        <div class="col-xs-6 col-sm-6 ">
+          <blockquote>
+            <% if place.photos.present? && place.photos.last.picture.present?  %>
+              <%= image_tag place.photos.last.picture, :class => 'img-responsive' %>
+              <%= place.photos.last.caption %>
+            <% end %>
+          </blockquote>
+        </div>
+      <% end%>
+    </div>
   </div>
-</div>
 <% end %>
 
 
