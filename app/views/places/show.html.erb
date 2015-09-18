@@ -38,7 +38,7 @@
 </div>
 
 <div class="clear"></div>
-  <h1>Comments</h1>
+  <h1 class="text-center">Comments</h1>
   <% @place.comments.each do |comment| %>
   <div class="col-xs-12 col-sm-6">
     <blockquote>
@@ -74,13 +74,42 @@
   </div>
 </div>
 
-<div class="col-xs-10 col-xs-offset-1">
-  <h1 class="pull-left">Comments</h1>
+<div class="col-xs-1 col-xs-offset-10">
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Add a comment
   </button>
 </div>
+<br>
 
+<br>
+<br>
+<div class="">
+  <% @place.photos.each do |photo| %>
+      <div class="col-xs-12 col-sm-6">
+        <blockquote>
+          <%= image_tag photo.picture, :class => 'img-responsive' %>
+          <%= photo.caption %>
+      </blockquote>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br>
+<br>
+<br>
+<div class="col-xs-10 col-xs-offset-1">
+  <%= simple_form_for @photo, :url => place_photos_path(@place) do |f| %>
+    <%= f.input :picture %>
+    <%= f.input :caption %>
+    <div class="col-xs-1 col-xs-offset-10">
+      <br>
+      <br>
+    <%= f.submit "Add a Photo", :class => 'btn btn-primary text-center' %>
+    </div>
+  <% end %>
+</div>
 
 <div class="clear"></div>
+<hr>
+<hr>

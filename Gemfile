@@ -17,6 +17,9 @@ gem 'simple_form', '~> 3.1.1'
 gem 'devise', '~> 3.5.2'
 gem 'geocoder', '~> 1.2.11'
 gem 'figaro', '~> 1.1.1'
+gem 'carrierwave', '~> 0.10.0'
+gem 'fog', '~> 1.34.0'
+
 
 group :doc do
   gem 'sdoc', require: false
