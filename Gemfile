@@ -19,6 +19,7 @@ gem 'geocoder', '~> 1.2.11'
 gem 'figaro', '~> 1.1.1'
 gem 'carrierwave', '~> 0.10.0'
 gem 'fog', '~> 1.34.0'
+gem 'factory_girl_rails', '~> 4.5.0'
 
 
 group :doc do

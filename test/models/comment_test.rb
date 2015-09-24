@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "humanized " do
+    result = Comment.new(:rating => '1_star').humanized_rating
+    assert_equal "one star", result 
+  end
 end
